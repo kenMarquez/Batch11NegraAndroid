@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void log(String content) {
-        Log.i("myLog", content);
+        Log.d("myLog", content);
     }
 
 
