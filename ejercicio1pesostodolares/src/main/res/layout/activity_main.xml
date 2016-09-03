@@ -2,77 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="25dp"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:background="#f1aa"
-        android:gravity="center"
-        android:text="Hello World!"
-        android:textColor="fff"
-        android:textSize="40sp"
-        android:textStyle="italic" />
+    <LinearLayout
+        android:layout_width="match_parent"
 
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="#f1aa"
-        android:gravity="center"
-        android:text="Hello World!"
-        android:textColor="fff"
-        android:textSize="40sp"
-        android:textStyle="italic" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Dolares"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_pesos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#555"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="#f1aa"
-            android:gravity="center"
-            android:text="Hello World!"
-            android:textColor="fff"
-            android:textSize="40sp"
-            android:textStyle="italic" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pesos"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="#f1aa"
-            android:gravity="center"
-            android:text="Hello World!"
-            android:textColor="fff"
-            android:textSize="40sp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="#f1aa"
-            android:gravity="center"
-            android:text="Hello World!"
-            android:textColor="fff"
-            android:textSize="40sp"
-            android:textStyle="italic" />
-
+        <EditText
+            android:id="@+id/tv_dolares"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_convertir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="Dolares a pesos" />
+
+    <Button
+        android:id="@+id/btn_convertir_a_pesos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Pesos a dolares" />
 
 
 </LinearLayout>
