@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnConvertirPesos.setOnClickListener(this);
     }
 
+
     /**
      * Metodo que se
      *
@@ -49,32 +50,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**
          *  Vemos que tipo de vista es a la que le dio click
          */
-        if (view.getId() == R.id.btn_convertir) {
+        switch (view.getId()) {
+            //convertiremos dolares a pesos
+            case R.id.btn_convertir:
 
+                if (!inputPesos.getText().toString().isEmpty()) {
+                    String pesos = inputPesos.getText().toString();
+                    log(pesos);
+                    double pesosDouble = Double.parseDouble(pesos);
+                    double dollar = pesosDouble * 18.5894338;
+                    inputDolares.setText("" + dollar);
+                } else {
+                    Toast.makeText(this, "Señor usuario no se puede realizar su acción", Toast.LENGTH_LONG).show();
+                }
+                break;
 
-            if (!inputPesos.getText().toString().isEmpty()) {
-                String pesos = inputPesos.getText().toString();
-                log(pesos);
-                double pesosDouble = Double.parseDouble(pesos);
-                double dollar = pesosDouble * 18.5894338;
-                inputDolares.setText("" + dollar);
-            } else {
-                Toast.makeText(this, "Señor usuario no se puede realizar su acción", Toast.LENGTH_LONG).show();
-            }
+            case R.id.btn_convertir_a_pesos:
 
-        } else {
+                if (!inputDolares.getText().toString().isEmpty()) {
+                    String pesos = inputDolares.getText().toString();
 
-            if (!inputDolares.getText().toString().isEmpty()) {
-                String pesos = inputDolares.getText().toString();
-
-                double pesosDouble = Double.parseDouble(pesos);
-                double dollar = pesosDouble / 18.5894338;
-                inputPesos.setText("" + dollar);
-            } else {
-                Toast.makeText(this, "Señor usuario no se puede realizar su acción", Toast.LENGTH_LONG).show();
-            }
+                    double pesosDouble = Double.parseDouble(pesos);
+                    double dollar = pesosDouble / 18.5894338;
+                    inputPesos.setText("" + dollar);
+                } else {
+                    Toast.makeText(this, "Señor usuario no se puede realizar su acción", Toast.LENGTH_LONG).show();
+                }
+                break;
 
         }
+
 
     }
 
