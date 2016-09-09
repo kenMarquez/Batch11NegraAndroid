@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         inputUserName = (EditText) findViewById(R.id.input_username);
+
+
         btnIniciar = (Button) findViewById(R.id.btn_iniciar);
         View.OnClickListener listener = this;
         btnIniciar.setOnClickListener(listener);
