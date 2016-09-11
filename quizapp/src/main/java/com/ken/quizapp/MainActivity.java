@@ -34,15 +34,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        String text = inputUserName.getText().toString();
+        String userName = inputUserName.getText().toString();
 
 
-        if (text.isEmpty()) {
+        if (userName.isEmpty()) {
             //No hacer nada
             Toast.makeText(this, "Tienes que ingresar un UserName", Toast.LENGTH_SHORT).show();
         } else {
-            Log.i("myLog", text);
+            Log.i("myLog", userName);
             Intent intent = new Intent(this, StartQuizActivity.class);
+
+
+            intent.putExtra("username", userName);
             startActivity(intent);
         }
     }
