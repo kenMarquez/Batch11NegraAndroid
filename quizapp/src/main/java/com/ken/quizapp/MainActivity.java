@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Le indicamos que layout va a utilizar mi actividad
         setContentView(R.layout.activity_main);
-
+        //Referenciamos el edittext del xml a nuestro inputUsername
         inputUserName = (EditText) findViewById(R.id.input_username);
-
-
         btnIniciar = (Button) findViewById(R.id.btn_iniciar);
-        View.OnClickListener listener = this;
-        btnIniciar.setOnClickListener(listener);
+
+        // le asignamos un escuchador que se mandara a llamara cuando le demos click al boton
+        btnIniciar.setOnClickListener(this);
 
     }
 
@@ -34,19 +34,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        //Tomamos lo que esta dentro de nuestro Edittext
         String userName = inputUserName.getText().toString();
 
 
         if (userName.isEmpty()) {
-            //No hacer nada
+            //El user name es vacio
             Toast.makeText(this, "Tienes que ingresar un UserName", Toast.LENGTH_SHORT).show();
         } else {
             Log.i("myLog", userName);
+
             Intent intent = new Intent(this, StartQuizActivity.class);
-
-
-            intent.putExtra("username", userName);
+            intent.putExtra("userKey", userName);
             startActivity(intent);
+
         }
     }
 }

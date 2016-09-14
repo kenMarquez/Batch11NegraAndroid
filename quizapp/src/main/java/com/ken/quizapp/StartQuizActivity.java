@@ -1,14 +1,17 @@
 package com.ken.quizapp;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
 import com.ken.quizapp.fragments.QuestionFragment;
+import com.ken.quizapp.fragments.ResultadosFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +59,17 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
         questionPosition = 0;
         cambiarFragment(questionPosition);
 
+        //Obtenemos el intent que mando a llamar esta actividad
+        Intent intent = getIntent();
+        //Obetnemos el Bundle donde estan guardados nuestros datos
+        Bundle extras = intent.getExtras();
+        //verificamos que el bundle sea distinto de null
+        if (extras != null) {
+            //obtenemos el username
+            String userName = extras.getString("userKey");
+            Log.e("username", userName);
+        }
+
     }
 
     /**
@@ -68,13 +82,20 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        if (questionFragment.getRespuesta() == mListRespuestas.get(questionPosition)) {
-            respuestasCorrectas++;
-        }
-        if (questionPosition == mListPreguntas.size()-1) {
+        // Verificamos que si es la ultima posicion mostramos puntaje
+        // sino mostramos la siguiente pregunta
+        if (questionPosition == mListPreguntas.size() - 1) {
             //terminamos
             Toast.makeText(this, "Tu puntaje es: " + respuestasCorrectas, Toast.LENGTH_LONG).show();
+
+
         } else {
+
+            // Verificiamos que la respuesta es correcta
+            if (questionFragment.getRespuesta() == mListRespuestas.get(questionPosition)) {
+                respuestasCorrectas++;
+            }
+
             questionPosition++;
             cambiarFragment(questionPosition);
         }
@@ -110,6 +131,8 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
     private void cambiarFragment(int positon) {
 
         questionFragment = new QuestionFragment(mListPreguntas.get(positon));
+
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
