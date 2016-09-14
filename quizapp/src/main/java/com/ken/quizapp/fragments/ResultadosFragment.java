@@ -18,6 +18,9 @@ public class ResultadosFragment extends Fragment {
     private String userName;
     private int resultado;
 
+    public ResultadosFragment() {
+    }
+
     public ResultadosFragment(String userName, int resultado) {
         this.userName = userName;
         this.resultado = resultado;
@@ -31,6 +34,10 @@ public class ResultadosFragment extends Fragment {
 
         TextView tvUserName = (TextView) view.findViewById(R.id.tv_username);
         TextView tvPuntaje = (TextView) view.findViewById(R.id.tv_puntaje);
+
+        tvUserName.setText(userName);
+        tvPuntaje.setText(resultado + "");
+
 
         return view;
     }

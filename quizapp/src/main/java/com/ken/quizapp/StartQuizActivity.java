@@ -39,6 +39,8 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
 
     private int respuestasCorrectas;
 
+    private String userName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
         //verificamos que el bundle sea distinto de null
         if (extras != null) {
             //obtenemos el username
-            String userName = extras.getString("userKey");
+            userName = extras.getString("userKey");
             Log.e("username", userName);
         }
 
@@ -87,7 +89,7 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
         if (questionPosition == mListPreguntas.size() - 1) {
             //terminamos
             Toast.makeText(this, "Tu puntaje es: " + respuestasCorrectas, Toast.LENGTH_LONG).show();
-
+            fragmentFinal();
 
         } else {
 
@@ -133,10 +135,25 @@ public class StartQuizActivity extends AppCompatActivity implements View.OnClick
         questionFragment = new QuestionFragment(mListPreguntas.get(positon));
 
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_left_exit)
+                .replace(R.id.frame_layout, questionFragment)
+                .commit();
+    }
+
+    /**
+     * Cambiamos de fragment en el framelayout y configuramos el fragment inicial
+     * con la pregunta correspondiente
+     */
+    private void fragmentFinal() {
+
+        ResultadosFragment resultadosFragment = new ResultadosFragment(userName, respuestasCorrectas);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.frame_layout, questionFragment)
+                .setCustomAnimations(R.anim.slide_right_enter, R.anim.slide_left_exit)
+                .replace(R.id.frame_layout, resultadosFragment)
                 .commit();
     }
 
