@@ -1,6 +1,8 @@
 package com.ken.quizapp.fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,7 +37,10 @@ public class ResultadosFragment extends Fragment {
         TextView tvUserName = (TextView) view.findViewById(R.id.tv_username);
         TextView tvPuntaje = (TextView) view.findViewById(R.id.tv_puntaje);
 
-        tvUserName.setText(userName);
+//        Context context = getActivity();
+//        SharedPreferences preferences =
+
+//        tvUserName.setText();
         tvPuntaje.setText(resultado + "");
 
 

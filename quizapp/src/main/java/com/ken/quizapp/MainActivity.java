@@ -1,7 +1,9 @@
 package com.ken.quizapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,9 +46,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Log.i("myLog", userName);
 
+
+            SharedPreferences preferences = this.getSharedPreferences("preferencias_quiz", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("userName", userName);
+            editor.putInt("random", 10);
+            editor.commit();
+
+
             Intent intent = new Intent(this, StartQuizActivity.class);
             intent.putExtra("userKey", userName);
             startActivity(intent);
+
 
         }
     }
