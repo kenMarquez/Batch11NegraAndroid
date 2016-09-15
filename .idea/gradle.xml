@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ejercicio1pesostodolares" />
             <option value="$PROJECT_DIR$/quizapp" />
+            <option value="$PROJECT_DIR$/realmexample" />
           </set>
         </option>
         <option name="myModules">
@@ -19,6 +20,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ejercicio1pesostodolares" />
             <option value="$PROJECT_DIR$/quizapp" />
+            <option value="$PROJECT_DIR$/realmexample" />
           </set>
         </option>
       </GradleProjectSettings>

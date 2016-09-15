@@ -47,11 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i("myLog", userName);
 
 
-            SharedPreferences preferences = this.getSharedPreferences("preferencias_quiz", MODE_PRIVATE);
+            SharedPreferences preferences = getSharedPreferences("preferencias_quiz", MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString("userName", userName);
-            editor.putInt("random", 10);
+            editor.putInt("random", 1012123);
             editor.commit();
+
 
 
             Intent intent = new Intent(this, StartQuizActivity.class);

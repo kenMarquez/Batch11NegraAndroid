@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ken.quizapp.R;
 
@@ -37,10 +38,16 @@ public class ResultadosFragment extends Fragment {
         TextView tvUserName = (TextView) view.findViewById(R.id.tv_username);
         TextView tvPuntaje = (TextView) view.findViewById(R.id.tv_puntaje);
 
-//        Context context = getActivity();
-//        SharedPreferences preferences =
 
-//        tvUserName.setText();
+        SharedPreferences preferences = getActivity().getSharedPreferences("preferencias_quiz", Context.MODE_PRIVATE);
+        String userName = preferences.getString("userName", "");
+        int random = preferences.getInt("random", 0);
+
+        Toast.makeText(getActivity(), random + "", Toast.LENGTH_SHORT).show();
+
+
+
+        tvUserName.setText(userName);
         tvPuntaje.setText(resultado + "");
 
 
