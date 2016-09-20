@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        User user = new User("Raul", "raul@gmail.com", 22);
+        User user = new User("Pepe", "pepe2@gmail.com", 24);
         guardarUsuario(user);
 
 
@@ -28,16 +28,13 @@ public class MainActivity extends AppCompatActivity {
     private void guardarUsuario(User user) {
 
 
-        // Create a RealmConfiguration that saves the Realm file in the app's "files" directory.
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
-        Realm.setDefaultConfiguration(realmConfig);
-
         // Get a Realm instance for this thread
         Realm realm = Realm.getDefaultInstance();
 
         realm.beginTransaction();
 
         realm.copyToRealmOrUpdate(user);
+
 
         realm.commitTransaction();
 
@@ -47,17 +44,31 @@ public class MainActivity extends AppCompatActivity {
 
     private void printAllUsers() {
 
-        // Create a RealmConfiguration that saves the Realm file in the app's "files" directory.
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
-        Realm.setDefaultConfiguration(realmConfig);
 
         // Get a Realm instance for this thread
         Realm realm = Realm.getDefaultInstance();
 
+
+        // Encontramos todos los usuarios de la tabla de
         List<User> allUsers = realm.where(User.class).findAll();
 
+        // Encontramos un usuario especifico
+        User luis = realm.where(User.class).equalTo("name", "Pepe").findFirst();
+        realm.beginTransaction();
+
+        luis.deleteFromRealm();
+        realm.commitTransaction();
+
+
+        // Encontramos todos los usuarios de la tabla de
+        allUsers = realm.where(User.class).findAll();
+
+        // Encontramos el primer usuario de toda la tabbla de usuarios
+        User first = realm.where(User.class).findFirst();
+
+
         for (int i = 0; i < allUsers.size(); i++) {
-            Log.i("myLog", "User: " + allUsers.get(i));
+            Log.i("myLog", "User: " + allUsers.get(i).getName());
         }
 
 
