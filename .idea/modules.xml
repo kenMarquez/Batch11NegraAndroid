@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/quizapp/quizapp.iml" filepath="$PROJECT_DIR$/quizapp/quizapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/realmexample/realmexample.iml" filepath="$PROJECT_DIR$/realmexample/realmexample.iml" />
       <module fileurl="file://$PROJECT_DIR$/recyclerviewexample/recyclerviewexample.iml" filepath="$PROJECT_DIR$/recyclerviewexample/recyclerviewexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/retrofitexample/retrofitexample.iml" filepath="$PROJECT_DIR$/retrofitexample/retrofitexample.iml" />
     </modules>
   </component>
 </project>

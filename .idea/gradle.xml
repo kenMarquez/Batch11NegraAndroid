@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/quizapp" />
             <option value="$PROJECT_DIR$/realmexample" />
             <option value="$PROJECT_DIR$/recyclerviewexample" />
+            <option value="$PROJECT_DIR$/retrofitexample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
