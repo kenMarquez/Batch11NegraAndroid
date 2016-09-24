@@ -1,1 +1,1 @@
-include ':app', ':ejercicio1pesostodolares', ':quizapp', ':realmexample', ':recyclerviewexample', ':retrofitexample'
+include ':app', ':ejercicio1pesostodolares', ':quizapp', ':realmexample', ':recyclerviewexample', ':retrofitexample', ':artistsearchspotify'
