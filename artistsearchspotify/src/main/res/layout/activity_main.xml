@@ -10,5 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="io.mariachi.artistsearchspotify.MainActivity">
 
+    <ImageView
+        android:id="@+id/img_artist"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
 
 </RelativeLayout>
