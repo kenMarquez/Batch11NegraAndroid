@@ -21,4 +21,6 @@ public interface SpostifyArtistClient {
     @GET("/v1/search?type=artist")
     Call<RequestArtist> getArtist(@Query("q") String artistName);
 
+
+
 }

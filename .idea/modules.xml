@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/realmexample/realmexample.iml" filepath="$PROJECT_DIR$/realmexample/realmexample.iml" />
       <module fileurl="file://$PROJECT_DIR$/recyclerviewexample/recyclerviewexample.iml" filepath="$PROJECT_DIR$/recyclerviewexample/recyclerviewexample.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofitexample/retrofitexample.iml" filepath="$PROJECT_DIR$/retrofitexample/retrofitexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spotifyplayer/spotifyplayer.iml" filepath="$PROJECT_DIR$/spotifyplayer/spotifyplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toolbarexample/toolbarexample.iml" filepath="$PROJECT_DIR$/toolbarexample/toolbarexample.iml" />
     </modules>
   </component>
 </project>
