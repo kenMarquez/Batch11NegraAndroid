@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         ContactAdapter contactAdapter = new ContactAdapter(userList);
         mRecyclerContacts.setAdapter(contactAdapter);
-
-
-
-
-
-
 
     }
 

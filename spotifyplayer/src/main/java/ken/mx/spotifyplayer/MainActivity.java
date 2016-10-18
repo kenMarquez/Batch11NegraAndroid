@@ -1,5 +1,6 @@
 package ken.mx.spotifyplayer;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
     private EditText inputSearch;
     private Button btnSearch;
 
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        play();
         initViews();
     }
 
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     public void getTracks(String query) {
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("https://api.spotify.com");
+                .baseUrl("https://api..com");
 
         Retrofit retrofit = builder
                 .addConverterFactory(GsonConverterFactory.create())
@@ -100,5 +104,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void play() {
+        if (mediaPlayer == null) {
+            mediaPlayer = new MediaPlayer();
+        }
+
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.reset();
+        }
+
+        try {
+            mediaPlayer.setDataSource("http://audio.talksport.com/ondemand/talkSPORT-Live-20161015-145742.mp3");
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
